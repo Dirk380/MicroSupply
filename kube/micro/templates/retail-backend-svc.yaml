@@ -14,6 +14,6 @@ spec:
     targetPort: {{ .Values.retailBack.service.ports.targetPort  }}
   selector:
     app: retail-supp
-  type: clusterIP
+  type: 
 status:
   loadBalancer: {}

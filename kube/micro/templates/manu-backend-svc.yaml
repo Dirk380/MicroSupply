@@ -14,6 +14,6 @@ spec:
     targetPort: {{ .Values.manuBack.service.ports.targetPort  }}
   selector:
     app: manu-supp
-  type: clusterIP
+  type: 
 status:
   loadBalancer: {}
