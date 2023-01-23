@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: supply
+  creationTimestamp: null
+  labels:
+    app: database-supp
+  name: {{ .Values.db.metadata.deployName}}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: database-supp
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: database-supp
+    spec:
+      containers:
+      - image: mysql
+        name: mysql
+        env:
+        - name: MYSQL_DATABASE
+          value: "scm_new"   
+        - name: MYSQL_ROOT_PASSWORD
+          value: "root"
+        - name: MYSQL_PASSWORD
+          value: "root" 
+        volumeMounts:
+          - mountPath: /docker-entrypoint-initdb.d
+            name: mysql-initdb
+        resources: {} 
+      volumes:
+        - name: mysql-initdb
+          configMap:
+            name: mysql-inditdb-config
+status: {}

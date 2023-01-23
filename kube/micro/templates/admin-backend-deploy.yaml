@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: supply
+  creationTimestamp: null
+  labels:
+    app: admin-supp
+  name: {{ .Values.adminBack.metadata.deployName}}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: admin-supp
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: admin-supp
+    spec:
+      containers:
+      - image: {{ .Values.adminBack.spec.containers.image}}
+        name: {{  .Values.adminBack.spec.containers.name }}
+        resources: {}
+        env:
+        - name: DB_HOST 
+          value: "database-svc"
+        - name: DB_USER
+          value: "root"
+        - name: DB_PASS
+          value: "root"
+        - name: DB_NAME 
+          value: "scm_new" 
+        - name: SECRET_KEY
+          valueFrom:
+           secretKeyRef:
+             name: supply-secret
+             key: jwt-key         
+status: {}

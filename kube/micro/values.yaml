@@ -1,0 +1,95 @@
+namespace: alfresco-test
+
+serviceType:
+  NodePort: NodePort
+  Loadbal: LoadBalancer
+  External: ExternalName
+
+adminBack:
+  metadata:
+    deployName: admin-backend
+    svcName: admin-svc
+    labels:
+  spec: 
+    replicas: 1
+    containers:
+      name: admin-container
+      image: dirk380/supp-admin:v5
+  service:
+    type: NodePort    
+    ports:
+      port: 80
+      targetPort: 80
+      NodePort: 30020
+        
+front:
+  metadata:
+    deployName: frontend
+    svcName: front-svc
+    labels:
+  spec: 
+    replicas: 1
+    containers:
+      name: front-container
+      image: dirk380/supp-home:v7
+  service:
+    type: NodePort    
+    ports:
+      port: 80
+      targetPort: 80
+      NodePort: 30023
+
+
+manuBack:
+  metadata:
+    deployName: manu-backend
+    svcName: manu-svc
+    labels:
+  spec: 
+    replicas: 1
+    containers:
+      name: manu-container
+      image: dirk380/supp-manu:v6
+  service:
+    type: NodePort    
+    ports:
+      port: 80
+      targetPort: 80
+      NodePort: 30021
+      
+
+retailBack:
+  metadata:
+    deployName: retail-backend
+    svcName: retail-svc
+    labels:
+  spec: 
+    replicas: 1
+    containers:
+      name: retail-container
+      image: dirk380/supp-retail:v6
+  service:
+    type: NodePort    
+    ports:
+      port: 80
+      targetPort: 80
+      NodePort: 30022
+
+
+
+db:
+  metadata:
+    deployName: database
+    svcName: database-svc
+    labels:
+  spec: 
+    replicas: 1
+    containers:
+      name: mysql-container
+      image: mysql
+  service:
+    type: NodePort    
+    ports:
+      port: 3306
+      targetPort: 3306
+      NodePort: 30024     

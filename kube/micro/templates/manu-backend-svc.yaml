@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: supply
+  creationTimestamp: null
+  labels:
+    app: manu-supp
+    app.kubernetes.io/managed-by: Helm
+  name: {{ .Values.manuBack.metadata.svcName }}
+spec:
+  ports:
+  - port: {{ .Values.manuBack.service.ports.port }}
+    protocol: TCP
+    targetPort: {{ .Values.manuBack.service.ports.targetPort  }}
+    nodePort: {{ .Values.manuBack.service.ports.NodePort }}
+  selector:
+    app: manu-supp
+  type: {{ .Values.serviceType.NodePort}} #kijken wat beter werkt, servicetype als global of gespecificeerd in values
+status:
+  loadBalancer: {}

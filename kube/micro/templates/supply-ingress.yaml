@@ -1,0 +1,42 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  generation: 5
+  name: supply-ingress
+  namespace: supply
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: www.supp.localdev.me
+    http:
+      paths:
+      - backend:
+          service:
+            name: front-svc
+            port:
+              number: 80
+        path: /
+        pathType: Prefix  
+      - backend:
+          service:
+            name: admin-svc
+            port:
+              number: 80
+        path: /admin
+        pathType: Prefix   
+      - backend:
+          service:
+            name: retail-svc
+            port:
+              number: 80
+        path: /retailer
+        pathType: Prefix      
+      - backend:
+          service:
+            name: manu-svc
+            port:
+              number: 80
+        path: /manufacturer
+        pathType: Prefix                      
+status:
+  loadBalancer: {}
