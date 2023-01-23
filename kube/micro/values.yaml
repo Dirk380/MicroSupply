@@ -11,7 +11,7 @@ adminBack:
     svcName: admin-svc
     labels:
   spec: 
-    replicas: 5
+    replicas: 1
     containers:
       name: admin-container
       image: dirk380/supp-admin:v5
@@ -37,7 +37,7 @@ front:
     ports:
       port: 80
       targetPort: 80
-      NodePort: 30023
+      # NodePort: 30023
 
 
 manuBack:
@@ -55,7 +55,7 @@ manuBack:
     ports:
       port: 80
       targetPort: 80
-      NodePort: 30021
+      # NodePort: 30021
       
 
 retailBack:
@@ -73,7 +73,7 @@ retailBack:
     ports:
       port: 80
       targetPort: 80
-      NodePort: 30022
+      # NodePort: 30022
 
 
 
@@ -92,4 +92,4 @@ db:
     ports:
       port: 3306
       targetPort: 3306
-      NodePort: 30024     
+      # NodePort: 30024     
