@@ -5,7 +5,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: admin-supp
-  name: Testaanpassing
+  name: {{ .Values.adminBack.metadata.deployName}}
 spec:
   replicas: 1
   selector:
