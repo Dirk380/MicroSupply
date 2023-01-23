@@ -12,9 +12,9 @@ spec:
   - port: {{ .Values.adminBack.service.ports.port }}
     protocol: TCP
     targetPort: {{ .Values.adminBack.service.ports.targetPort  }}
-    nodePort: {{ .Values.adminBack.service.ports.NodePort }}
+
   selector:
     app: admin-supp
-  type: {{ .Values.serviceType.NodePort}} 
+  type: clusterIP
 status:
   loadBalancer: {}
