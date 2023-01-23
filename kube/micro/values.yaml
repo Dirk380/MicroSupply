@@ -25,7 +25,7 @@ adminBack:
 front:
   metadata:
     deployName: frontend
-    svcName: front-svc
+    svcName: front-svc-test
     labels:
   spec: 
     replicas: 1
