@@ -1,4 +1,4 @@
-namespace: alfresco-test
+namespace: supply
 
 serviceType:
   NodePort: NodePort

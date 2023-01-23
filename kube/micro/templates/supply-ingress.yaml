@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   generation: 5
   name: supply-ingress
-  namespace: supply
+  namespace: {{ .Values.namespace}}
 spec:
   ingressClassName: nginx
   rules:
