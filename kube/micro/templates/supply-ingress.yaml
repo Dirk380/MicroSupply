@@ -1,7 +1,6 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  generation: 5
   name: supply-ingress
   namespace: {{ .Values.namespace}}
 spec:
