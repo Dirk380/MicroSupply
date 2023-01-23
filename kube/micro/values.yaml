@@ -7,7 +7,7 @@ serviceType:
 
 adminBack:
   metadata:
-    deployName: admin-backend
+    deployName: admin-backend-test
     svcName: admin-svc
     labels:
   spec: 
