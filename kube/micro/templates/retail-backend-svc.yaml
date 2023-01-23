@@ -12,9 +12,8 @@ spec:
   - port: {{ .Values.retailBack.service.ports.port }}
     protocol: TCP
     targetPort: {{ .Values.retailBack.service.ports.targetPort  }}
-    nodePort: {{ .Values.retailBack.service.ports.NodePort }}
   selector:
     app: retail-supp
-  type: {{ .Values.serviceType.NodePort}} 
+  type: clusterIP
 status:
   loadBalancer: {}

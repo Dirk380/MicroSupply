@@ -12,9 +12,8 @@ spec:
   - port: {{ .Values.db.service.ports.port }}
     protocol: TCP
     targetPort: {{ .Values.db.service.ports.targetPort  }}
-    nodePort: {{ .Values.db.service.ports.NodePort }}
   selector:
     app: database-supp
-  type: {{ .Values.serviceType.NodePort}} #kijken wat beter werkt, servicetype als global of gespecificeerd in values
+  type: clusterIP
 status:
   loadBalancer: {}
