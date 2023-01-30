@@ -11,7 +11,7 @@ adminBack:
     svcName: admin-svc
     labels:
   spec: 
-    replicas: 5
+    replicas: 1
     containers:
       name: admin-container
       image: dirk380/supp-admin:v5
