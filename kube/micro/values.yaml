@@ -1,4 +1,4 @@
-namespace: supply
+namespace: test-argo
 
 serviceType:
   NodePort: NodePort
