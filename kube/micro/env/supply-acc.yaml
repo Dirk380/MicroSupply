@@ -56,8 +56,6 @@ manuBack:
       port: 80
       targetPort: 80
 
-
-
 retailBack:
   metadata:
     deployName: retail-backend-acc
